@@ -1,0 +1,12 @@
+.setWidth{
+    width: 600px;
+}
+
+.changeFont{
+    font-family: cursive;
+    font-weight: bolder;
+ }
+
+.setColor{
+    background-color: rgba(72, 222, 173, 0.91);
+}

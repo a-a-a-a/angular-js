@@ -1,0 +1,44 @@
+/**
+ * Created by Rubel on 8/27/14.
+ */
+
+
+/**
+ * Created by Rubel on 8/27/14.
+ *
+ * Service for fetching data from the server.
+ */
+
+(function(){
+    var githubService = function($http){
+
+
+        var getUser =function(username){
+            return $http.get("https://api.github.com/users/" + username)
+                .then(function(response){
+                    return response.data;
+                });
+        };
+
+        var getRepos = function(user){
+           return $http.get(user.repos_url).then(function(response){
+                return response.data;
+            });
+        };
+
+        return{
+            getUser:getUser,
+            getRepos:getRepos
+        };
+
+
+    };
+
+    var module = angular.module("githubViewer");
+
+    module.factory("github", githubService);
+
+
+
+}());
+
